@@ -56,7 +56,7 @@ const Authors = () => {
                             <CardMedia>
                                 <Avatar
                                     alt={author.name}
-                                    src={`${import.meta.env.REACT_APP_API_URL}/${author.profilePicture}`}
+                                    src={`${import.meta.env.VITE_REACT_APP_API}/${author.profilePicture}`}
                                     style={{
                                         width: '250px',
                                         height: '250px',

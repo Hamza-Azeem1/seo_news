@@ -18,10 +18,10 @@ const BlogPost = () => {
 
     const fetchBlog = useCallback(async () => {
         try {
-            const response = await axios.get(`${import.meta.env.REACT_APP_API_URL}/${schema}/${id}`);
+            const response = await axios.get(`${import.meta.env.VITE_REACT_APP_API}/${schema}/${id}`);
             setBlog(response.data);
             if (response.data.author_ids.length) {
-                const authorResponse = await axios.get(`${import.meta.env.REACT_APP_API_URL}/api/authors`, {
+                const authorResponse = await axios.get(`${import.meta.env.VITE_REACT_APP_API}/api/authors`, {
                     params: { ids: response.data.author_ids.join(',') }
                 });
                 const filteredAuthors = authorResponse.data.filter(author => response.data.author_ids.includes(author._id));
@@ -77,7 +77,7 @@ const BlogPost = () => {
                                 {authors.map(author => (
                                     <Avatar
                                         key={author._id}
-                                        src={`http://localhost:8000/${author.profilePicture}`}
+                                        src={`${import.meta.env.VITE_REACT_APP_API}/${author.profilePicture}`}
                                         alt={author.name}
                                         sx={{ width: { xs: 50, md: 70 }, height: { xs: 50, md: 70 }, mr: 2 }}
                                     />
@@ -104,7 +104,7 @@ const BlogPost = () => {
                     </Grid>
                     {blog.img && (
                         <Box component="img"
-                            src={`http://localhost:8000/uploads/${blog.img}`}
+                            src={`${import.meta.env.VITE_REACT_APP_API}/uploads/${blog.img}`}
                             alt={blog.title}
                             sx={{ width: '100%', height: 'auto', mb: 4, borderRadius: 1, boxShadow: 3 }}
                         />

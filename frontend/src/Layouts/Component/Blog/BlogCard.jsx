@@ -59,7 +59,7 @@ const BlogCard = ({ blogs, isAdmin, onEdit, setBlogs }) => {
                                 {blog.img && (
                                     <img
                                         className="w-full h-48 object-cover"
-                                        src={`${import.meta.env.REACT_APP_API_URL}/uploads/${blog.img}`}
+                                        src={`${import.meta.env.VITE_REACT_APP_API}/uploads/${blog.img}`}
                                         alt={blog.img_alt_text || blog.title}
                                     />
                                 )}

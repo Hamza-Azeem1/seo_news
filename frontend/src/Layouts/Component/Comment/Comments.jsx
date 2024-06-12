@@ -11,7 +11,7 @@ const CommentSection = ({ blogId, userId }) => {
 
     const fetchComments = useCallback(async () => {
         try {
-            const response = await axios.get(`${import.meta.env.REACT_APP_API_URL}/api/comments/${blogId}/comments`);
+            const response = await axios.get(`${import.meta.env.VITE_REACT_APP_API}/api/comments/${blogId}/comments`);
             const fetchedComments = response.data.map(comment => ({
                 ...comment,
                 replyOpen: false,
@@ -35,7 +35,7 @@ const CommentSection = ({ blogId, userId }) => {
     const handleSubmitComment = async () => {
         if (comment.trim() !== '') {
             try {
-                await axios.post(`${import.meta.env.REACT_APP_API_URL}/api/comments/${blogId}/comments`, { text: comment });
+                await axios.post(`${import.meta.env.VITE_REACT_APP_API}/api/comments/${blogId}/comments`, { text: comment });
                 fetchComments();
                 setComment('');
             } catch (error) {
@@ -48,7 +48,7 @@ const CommentSection = ({ blogId, userId }) => {
         const updatedComments = [...comments];
         const comment = updatedComments[index];
         try {
-            await axios.post(`${import.meta.env.REACT_APP_API_URL}/api/comments/${comment._id}/like`, { userId });
+            await axios.post(`${import.meta.env.VITE_REACT_APP_API}/api/comments/${comment._id}/like`, { userId });
             if (comment.liked) {
                 comment.likes -= 1;
                 comment.liked = false;
@@ -79,7 +79,7 @@ const CommentSection = ({ blogId, userId }) => {
         const comment = updatedComments[index];
         if (comment.replyText.trim() !== '') {
             try {
-                await axios.post(`${import.meta.env.REACT_APP_API_URL}/api/comments/${comment._id}/replies`, { text: comment.replyText });
+                await axios.post(`${import.meta.env.VITE_REACT_APP_API}/api/comments/${comment._id}/replies`, { text: comment.replyText });
                 comment.replies.push({
                     text: comment.replyText,
                     timestamp: new Date().toLocaleString(),

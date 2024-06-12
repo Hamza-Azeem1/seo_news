@@ -12,7 +12,7 @@ const AdminComments = () => {
 
     const fetchBlogs = useCallback(async () => {
         try {
-            const response = await axios.get(`${import.meta.env.REACT_APP_API_URL}/api/blog`);
+            const response = await axios.get(`${import.meta.env.VITE_REACT_APP_API}/api/blog`);
             setBlogs(response.data);
         } catch (error) {
             console.error('Error fetching blogs:', error);
@@ -22,7 +22,7 @@ const AdminComments = () => {
     const fetchComments = useCallback(async () => {
         if (selectedBlogId) {
             try {
-                const response = await axios.get(`${import.meta.env.REACT_APP_API_URL}/api/comments/${selectedBlogId}/comments`);
+                const response = await axios.get(`${import.meta.env.VITE_REACT_APP_API}/api/comments/${selectedBlogId}/comments`);
                 setComments(response.data);
                 setTotalComments(response.data.length);
             } catch (error) {
@@ -46,7 +46,7 @@ const AdminComments = () => {
 
     const handleDeleteClick = async (commentId) => {
         try {
-            await axios.delete(`${import.meta.env.REACT_APP_API_URL}/api/comments/${commentId}`);
+            await axios.delete(`${import.meta.env.VITE_REACT_APP_API}/api/comments/${commentId}`);
             setComments(comments.filter(comment => comment._id !== commentId));
             setTotalComments(totalComments - 1);
         } catch (error) {

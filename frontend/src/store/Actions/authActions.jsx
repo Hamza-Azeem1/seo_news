@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: `${import.meta.env.REACT_APP_API_URL}/api/auth`,
+    baseURL: `${import.meta.env.VITE_REACT_APP_API}/api/auth`,
 });
 
 export const login = (email, password) => async (dispatch) => {
