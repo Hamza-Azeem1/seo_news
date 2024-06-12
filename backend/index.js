@@ -9,11 +9,14 @@ const app = express();
 connectDB();
 
 // Middleware
+// app.use(cors());
+
 app.use(cors({
     origin: 'https://seo-news.vercel.app',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
 }));
+
 app.use(express.json({ extended: false }));
 
 // Serve static files from the "uploads" directory
