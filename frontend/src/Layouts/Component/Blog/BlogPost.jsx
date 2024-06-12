@@ -18,7 +18,7 @@ const BlogPost = () => {
 
     const fetchBlog = useCallback(async () => {
         try {
-            const response = await axios.get(`${import.meta.env.VITE_REACT_APP_API}/${schema}/${id}`);
+            const response = await axios.get(`${import.meta.env.VITE_REACT_APP_API}/api/blog/${schema}/${id}`);
             setBlog(response.data);
             if (response.data.author_ids.length) {
                 const authorResponse = await axios.get(`${import.meta.env.VITE_REACT_APP_API}/api/authors`, {
