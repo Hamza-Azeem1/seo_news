@@ -25,7 +25,7 @@ const AddAuthorDialog = ({ open, handleClose, author }) => {
             setName(author.name || '');
             setDesignation(author.designation || '');
             setProfilePicture(author.profilePicture || null);
-            setPreview(author.profilePicture ? `http://localhost:8000/${author.profilePicture}` : null);
+            setPreview(author.profilePicture ? `${import.meta.env.REACT_APP_API_URL}/${author.profilePicture}` : null);
         } else {
             setName('');
             setDesignation('');

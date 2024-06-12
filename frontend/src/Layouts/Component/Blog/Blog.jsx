@@ -11,7 +11,7 @@ const Blog = () => {
         const fetchBlogs = async () => {
             if (!blogFetched) {
                 try {
-                    const response = await axios.get('http://localhost:8000/api/blog');
+                    const response = await axios.get(`${import.meta.env.REACT_APP_API_URL}/api/blog`);
                     setBlogs(response.data);
                     setBlogFetched(true);
                 } catch (error) {

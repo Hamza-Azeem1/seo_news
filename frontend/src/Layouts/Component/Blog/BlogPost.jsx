@@ -18,10 +18,10 @@ const BlogPost = () => {
 
     const fetchBlog = useCallback(async () => {
         try {
-            const response = await axios.get(`http://localhost:8000/api/blog/${schema}/${id}`);
+            const response = await axios.get(`${import.meta.env.REACT_APP_API_URL}/${schema}/${id}`);
             setBlog(response.data);
             if (response.data.author_ids.length) {
-                const authorResponse = await axios.get(`http://localhost:8000/api/authors`, {
+                const authorResponse = await axios.get(`${import.meta.env.REACT_APP_API_URL}/api/authors`, {
                     params: { ids: response.data.author_ids.join(',') }
                 });
                 const filteredAuthors = authorResponse.data.filter(author => response.data.author_ids.includes(author._id));
