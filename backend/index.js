@@ -9,12 +9,12 @@ const app = express();
 connectDB();
 
 // Middleware
-// app.use(cors());
+app.use(cors());
 
-app.use(cors({
-    origin: 'https://seo-news.vercel.app',
-    credentials: true
-}));
+// app.use(cors({
+//     origin: 'https://seo-news.vercel.app',
+//     credentials: true
+// }));
 
 app.use(express.json({ extended: false }));
 
