@@ -12,7 +12,7 @@ connectDB();
 //app.use(cors());
 
 app.use(cors({
-    origin: 'https://seo-news.vercel.app/',
+    origin: 'https://seo-news.vercel.app',
     credentials: true
 }));
 
