@@ -49,7 +49,7 @@ const AdminMain = () => {
 
     useEffect(() => {
         const fetchBlogs = async () => {
-            const res = await fetch(`${import.meta.env.REACT_APP_API_URL}/api/blog`);
+            const res = await fetch(`${import.meta.env.VITE_REACT_APP_API}/api/blog`);
             const data = await res.json();
             setBlogs(data);
         };
