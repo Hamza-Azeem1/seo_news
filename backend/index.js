@@ -8,14 +8,13 @@ const app = express();
 // Connect Database
 connectDB();
 
-// Init Middleware
-app.use(express.json({ extended: false }));
-
+// Middleware
 app.use(cors({
     origin: 'https://seo-news.vercel.app',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
 }));
+app.use(express.json({ extended: false }));
 
 // Serve static files from the "uploads" directory
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
@@ -27,8 +26,6 @@ app.use('/api/forum', require('./routes/forum'));
 app.use('/api/authors', require('./routes/author'));
 app.use('/api/links', require('./routes/links'));
 app.use('/api/auth', require('./routes/auth'));
-
-
 
 const PORT = process.env.PORT || 8000;
 
