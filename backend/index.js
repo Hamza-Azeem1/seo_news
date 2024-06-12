@@ -11,8 +11,11 @@ connectDB();
 // Init Middleware
 app.use(express.json({ extended: false }));
 
-// Enable CORS for all routes
-app.use(cors());
+app.use(cors({
+    origin: ["https://seo-news.vercel.app"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+}));
 
 // Serve static files from the "uploads" directory
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
