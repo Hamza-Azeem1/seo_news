@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import DOMPurify from 'dompurify';
+import ReactHTMLParser from 'react-html-parser'
 import CommentSection from '../Comment/Comments';
 import { Container, Typography, Button, Box, CircularProgress, Avatar, Grid, Dialog, DialogTitle, DialogContent } from '@mui/material';
 import { useSelector } from 'react-redux';
@@ -110,7 +111,7 @@ const BlogPost = () => {
                         />
                     )}
                     <Typography component={'div'} variant="body1" sx={{ lineHeight: 1.6, textAlign: 'justify', color: '#fff' }}>
-                        {sanitizedContent}
+                        {ReactHTMLParser(sanitizedContent)}
                     </Typography>
                     <Button
                         component={Link}
