@@ -4,16 +4,25 @@ const Blog = require('../models/Blog');
 const multer = require('multer');
 const path = require('path');
 
-const storage = multer.diskStorage({
-    destination: './uploads/',
-    filename: (req, file, cb) => {
-        cb(null, `${Date.now()}${path.extname(file.originalname)}`);
-    },
-});
+// const storage = multer.diskStorage({
+//     destination: './uploads/',
+//     filename: (req, file, cb) => {
+//         cb(null, `${Date.now()}${path.extname(file.originalname)}`);
+//     },
+// });
+
+// const upload = multer({
+//     storage: storage,
+//     limits: { fileSize: 1000000 },
+// }).single('img');
+
+
+// Use memory storage
+const storage = multer.memoryStorage();
 
 const upload = multer({
     storage: storage,
-    limits: { fileSize: 1000000 },
+    limits: { fileSize: 1000000 }, // Adjust the file size limit as needed
 }).single('img');
 
 // @route GET api/blog

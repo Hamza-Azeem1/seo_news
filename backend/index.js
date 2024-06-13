@@ -9,7 +9,7 @@ const app = express();
 connectDB();
 
 // Middleware
-//app.use(cors());
+// app.use(cors());
 
 app.use(cors({
     origin: 'https://seo-news.vercel.app',
