@@ -9,33 +9,20 @@ const app = express();
 connectDB();
 
 // Middleware
-app.use(cors());
+// app.use(cors());
 
-app.use(cors({
+const corsOptions = {
     origin: 'https://seo-news.vercel.app',
-    credentials: true
-}));
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+    optionsSuccessStatus: 200 // Some legacy browsers choke on 204
+};
+
+app.use(cors(corsOptions));
 
 // Handle preflight requests
-app.options('*', cors());
-
-// Explicitly add CORS headers
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://seo-news.vercel.app');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-    if (req.method === 'OPTIONS') {
-        res.sendStatus(200);
-    } else {
-        next();
-    }
-});
-
-// Debugging middleware
-app.use((req, res, next) => {
-    console.log(`Request Method: ${req.method}, Request URL: ${req.url}`);
-    next();
-});
+app.options('*', cors(corsOptions));
 
 app.use(express.json({ extended: false }));
 
