@@ -12,7 +12,7 @@ connectDB();
 // app.use(cors());
 
 const corsOptions = {
-    origin: 'https://seo-news.vercel.app',
+    origin: ['https://seo-news.vercel.app', 'https://www.seone.ws'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept'],
     credentials: true,
