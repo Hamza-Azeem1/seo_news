@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { MenuIcon } from "@heroicons/react/solid";
 import { Link } from "react-router-dom";
-import Logo from "../../public/logo.png"
+import Logo from "/logo.png"
 
 function Header() {
     const [toggleMenu, setToggleMenu] = useState(false);

@@ -1,7 +1,7 @@
 import { FaFacebook, FaInstagram, FaLinkedin, FaCopyright } from 'react-icons/fa';
 import { Link } from "react-router-dom";
 import Newsletter from './Component/NewsLetter';
-import Logo from "../../public/logo.png";
+import Logo from "/logo.png";
 
 const Footer = () => {
     return (
