@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { MenuIcon } from "@heroicons/react/solid";
 import { Link } from "react-router-dom";
+import Logo from "../../public/logo.png"
 
 function Header() {
     const [toggleMenu, setToggleMenu] = useState(false);
@@ -22,9 +23,10 @@ function Header() {
             <nav className="bg-[#010100] h-20 lg:flex lg:items-center">
                 <div className="w-full mx-auto">
                     <div className="flex items-center justify-between w-full text-[#40e0d0]">
-                        <Link to="/" className="h-12 text-4xl" style={{ paddingLeft: "20px", marginTop: "10px" }}>
-                            Logo
+                        <Link to="/" className="h-12" style={{ paddingLeft: "20px", marginTop: "10px" }}>
+                            <img src={Logo} alt="Logo" className="h-full" />
                         </Link>
+
                         <div className="flex gap-6">
                             <div className="lg:hidden flex items-center mx-6">
                                 <button onClick={handleMenuClick}>

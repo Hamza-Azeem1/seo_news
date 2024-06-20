@@ -1,7 +1,7 @@
 import { FaFacebook, FaInstagram, FaLinkedin, FaCopyright } from 'react-icons/fa';
 import { Link } from "react-router-dom";
-import Newsletter from './Component/NewsLetter'
-
+import Newsletter from './Component/NewsLetter';
+import Logo from "../../public/logo.png";
 
 const Footer = () => {
     return (
@@ -10,8 +10,10 @@ const Footer = () => {
             <div className="container mx-auto">
                 <div className="flex flex-col md:flex-row justify-center items-center mb-8">
                     <div className="w-full md:w-1/4 text-center md:text-left mb-4 md:mb-0">
-                        <p className="w-16 h-16 object-contain">Logo</p>
-                        <p className="italic md:text-left mt-2 md:mt-0">Build your ideas with Us.</p>
+                        <Link to="/" className="h-12" style={{ paddingLeft: "20px", marginTop: "10px" }}>
+                            <img src={Logo} alt="Logo" className="h-12 mx-auto md:mx-0" />
+                        </Link>
+                        <p className="italic mt-2">Build your ideas with Us.</p>
                     </div>
                     <div className="w-full md:w-3/4 text-center md:text-left">
                         <div className="flex flex-col md:flex-row md:justify-between">
@@ -70,13 +72,13 @@ const Footer = () => {
                 </div>
 
                 <div className="text-center">
-                    <p className="text-sm">
-                        <FaCopyright className="inline mr-1" />
-                        2023 - Name. All Rights Reserved.
+                    <p className="text-sm flex justify-center items-center">
+                        <FaCopyright className="mr-1" />
+                        2023 - SEO News. All Rights Reserved.
                     </p>
                 </div>
             </div>
-        </footer >
+        </footer>
     );
 };
 
