@@ -120,7 +120,10 @@ export const editAnswer = (questionId, answerId, data) => async (dispatch) => {
 export const deleteAnswer = (questionId, answerId) => async (dispatch) => {
     try {
         const response = await api.delete(`/api/forum/${questionId}/answer/${answerId}`);
-        dispatch({ type: 'DELETE_ANSWER_SUCCESS', payload: response.data });
+        dispatch({
+            type: 'DELETE_ANSWER_SUCCESS',
+            payload: { questionId, answerId, updatedQuestion: response.data.question }
+        });
     } catch (error) {
         console.error('Error deleting answer:', error);
         dispatch({ type: 'DELETE_ANSWER_FAILURE', payload: error.message });

@@ -185,16 +185,6 @@ const AdminMain = () => {
                                             Questions and Answers
                                         </Typography>
                                     </Grid>
-                                    <Grid item>
-                                        <Button
-                                            variant="contained"
-                                            color="primary"
-                                            sx={{ color: 'white' }}
-                                            endIcon={<AddIcon />}
-                                        >
-                                            Add Forum
-                                        </Button>
-                                    </Grid>
                                 </Grid>
                                 <AdminForum />
                             </>

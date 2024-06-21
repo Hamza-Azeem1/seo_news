@@ -130,9 +130,11 @@ const forumReducer = (state = initialState, action) => {
         case 'DELETE_ANSWER_SUCCESS':
             return {
                 ...state,
-                questions: state.questions.map(q => q._id === action.payload._id ? action.payload : q),
-                loading: false,
-                error: null,
+                questions: state.questions.map(question =>
+                    question._id === action.payload.questionId
+                        ? action.payload.updatedQuestion
+                        : question
+                )
             };
         case 'DELETE_ANSWER_FAILURE':
             return {

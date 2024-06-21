@@ -154,16 +154,19 @@ router.delete('/:id/answer/:answerId', async (req, res) => {
             return res.status(404).json({ message: 'Question not found' });
         }
 
-        const answer = question.answers.id(req.params.answerId);
-        if (!answer) {
+        const answerIndex = question.answers.findIndex(answer => answer._id.toString() === req.params.answerId);
+        if (answerIndex === -1) {
             return res.status(404).json({ message: 'Answer not found' });
         }
 
-        answer.remove();
+        // Remove the answer from the answers array
+        question.answers.splice(answerIndex, 1);
         await question.save();
-        res.json(question);
+
+        res.json({ message: 'Answer deleted successfully', question });
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        console.error('Error deleting answer:', error);
+        res.status(500).json({ message: 'Internal server error', error: error.message });
     }
 });
 

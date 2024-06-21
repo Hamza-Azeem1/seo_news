@@ -9,20 +9,20 @@ const app = express();
 connectDB();
 
 // Middleware
-// app.use(cors());
+app.use(cors());
 
-const corsOptions = {
-    origin: ['https://seo-news.vercel.app', 'https://www.seone.ws'],
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept'],
-    credentials: true,
-    optionsSuccessStatus: 200
-};
+// const corsOptions = {
+//     origin: ['https://seo-news.vercel.app', 'https://www.seone.ws'],
+//     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+//     allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept'],
+//     credentials: true,
+//     optionsSuccessStatus: 200
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
-// Handle preflight requests
-app.options('*', cors(corsOptions));
+// // Handle preflight requests
+// app.options('*', cors(corsOptions));
 
 
 app.use(express.json({ extended: false }));
